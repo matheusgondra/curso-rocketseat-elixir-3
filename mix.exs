@@ -55,7 +55,8 @@ defmodule Rockelivery.MixProject do
       {:bandit, "~> 1.2"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:pbkdf2_elixir, "~> 1.3"},
-      {:excoveralls, "~> 0.10", only: :test}
+      {:excoveralls, "~> 0.10", only: :test},
+      {:ex_machina, "~> 2.8.0", only: :test}
     ]
   end
 

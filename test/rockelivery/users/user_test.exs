@@ -1,20 +1,14 @@
 defmodule Rockelivery.Users.UserTest do
   use Rockelivery.DataCase, async: true
 
+  import Rockelivery.Factory
+
   alias Ecto.Changeset
   alias Rockelivery.Users.User
 
   describe "changeset/1" do
     test "when all params are valid, returns a valid changeset" do
-      params = %{
-        address: "Rua dos Bobos, 0",
-        age: 18,
-        cep: "00000000",
-        cpf: "00000000000",
-        email: "fulano@mail.com",
-        name: "Fulano",
-        password: "123456"
-      }
+      params = build(:user_params)
 
       response = User.changeset(params)
 
@@ -22,15 +16,7 @@ defmodule Rockelivery.Users.UserTest do
     end
 
     test "when there are some error, returns a invalid changeset" do
-      params = %{
-        address: "Rua dos Bobos, 0",
-        age: 15,
-        cep: "00000000",
-        cpf: "00000000000",
-        email: "fulano@mail.com",
-        name: "Fulano",
-        password: "123"
-      }
+      params = build(:user_params, age: 15, password: "123")
 
       response = User.changeset(params)
 
@@ -45,15 +31,7 @@ defmodule Rockelivery.Users.UserTest do
 
   describe "changeset/2" do
     test "when all params are valid, returns a valid changeset" do
-      params = %{
-        address: "Rua dos Bobos, 0",
-        age: 18,
-        cep: "00000000",
-        cpf: "00000000000",
-        email: "fulano@mail.com",
-        name: "Fulano",
-        password: "123456"
-      }
+      params = build(:user_params)
 
       update_params = %{name: "Siclano"}
 
@@ -66,15 +44,7 @@ defmodule Rockelivery.Users.UserTest do
     end
 
     test "when there are some error, returns a invalid changeset" do
-      params = %{
-        address: "Rua dos Bobos, 0",
-        age: 18,
-        cep: "00000000",
-        cpf: "00000000000",
-        email: "fulano@mail.com",
-        name: "Fulano",
-        password: "123456"
-      }
+      params = build(:user_params)
 
       update_params = %{age: 15, cep: "000"}
 
