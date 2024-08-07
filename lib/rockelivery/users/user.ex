@@ -30,7 +30,7 @@ defmodule Rockelivery.Users.User do
     |> put_password_hash()
   end
 
-  def changeset(%__MODULE__{} = struct, params) do
+  def changeset(struct, params) do
     struct
     |> cast(params, @update_params)
     |> validate_required(@update_params)
@@ -41,7 +41,7 @@ defmodule Rockelivery.Users.User do
   defp do_validations(changeset, fields) do
     changeset
     |> validate_required(fields)
-    |> validate_length(:password_hash, min: 6)
+    |> validate_length(:password, min: 6)
     |> validate_length(:cep, is: 8)
     |> validate_length(:cpf, is: 11)
     |> validate_number(:age, greater_than_or_equal_to: 18)
