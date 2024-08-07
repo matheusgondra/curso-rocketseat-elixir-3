@@ -1,0 +1,15 @@
+@base_url = http://localhost:4000/api
+
+# @name create_user
+POST {{base_url}}
+Content-Type: application/json
+
+{
+	"name": "Matheus",
+	"email": "matheus@mail.com",
+	"password": "Senha@123",
+	"age": 23,
+	"cpf": "12345678900",
+	"cep": "12345678",
+	"address": "Rua do Limoeiro"
+}
