@@ -18,3 +18,8 @@ Content-Type: application/json
 
 # @name get_user
 GET {{base_url}}/52aec1d0-87e2-432b-a99f-98898ad094ba
+
+###
+
+# @name delete_user
+DELETE {{base_url}}/f37a3eb4-e968-4fb1-b09b-6d2183b86bf6
