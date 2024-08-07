@@ -9,7 +9,7 @@ defmodule RockeliveryWeb.ErrorJSON do
 
   alias Ecto.Changeset
 
-  def render("400.json", %{result: %Changeset{} = changeset}) do
+  def error(%{result: %Changeset{} = changeset}) do
     %{message: translate_errors(changeset)}
   end
 
