@@ -9,9 +9,8 @@ defmodule RockeliveryWeb.ErrorJSON do
 
   alias Ecto.Changeset
 
-  def error(%{result: %Changeset{} = changeset}) do
-    %{message: translate_errors(changeset)}
-  end
+  def error(%{result: %Changeset{} = changeset}), do: %{message: translate_errors(changeset)}
+  def error(%{result: result}), do: %{message: result}
 
   def render(template, _assigns) do
     %{errors: %{detail: Phoenix.Controller.status_message_from_template(template)}}

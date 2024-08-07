@@ -5,4 +5,6 @@ defmodule RockeliveryWeb.UserJSON do
       user: user
     }
   end
+
+  def show(%{user: user}), do: %{user: user}
 end
