@@ -39,4 +39,18 @@ defmodule RockeliveryWeb.UserControllerTest do
       assert response == expected_response
     end
   end
+
+  describe "delete/2" do
+    test "when there is a user with the given id, deletes the user", %{conn: conn} do
+      id = "678ab91a-778e-4798-a81f-2e6ee6f4869e"
+      insert(:user)
+
+      response =
+        conn
+        |> delete(~p"/api/#{id}")
+        |> response(:no_content)
+
+      assert response == ""
+    end
+  end
 end
